@@ -74,10 +74,10 @@ SELECT movie.title, actor.name
   JOIN casting ON (movie.id = casting.movieid)
   JOIN actor ON (casting.actorid = actor.id)
  WHERE movie.id in (SELECT movie.id
-                         FROM movie
-                         JOIN casting ON (movie.id = casting.movieid)
-                         JOIN actor ON (casting.actorid = actor.id)
-                        WHERE actor.name = 'Julie Andrews')
+                     FROM movie
+                     JOIN casting ON (movie.id = casting.movieid)
+                     JOIN actor ON (casting.actorid = actor.id)
+                    WHERE actor.name = 'Julie Andrews')
   AND casting.ord = '1';
 
 -- 13
@@ -100,7 +100,6 @@ GROUP BY title
 ORDER BY COUNT(actorid) DESC, title ASC;
 
 -- 15
-
 SELECT name
   FROM movie
   JOIN casting ON (movie.id = casting.movieid)
