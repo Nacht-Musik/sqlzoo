@@ -26,7 +26,13 @@ SELECT subject, SUM(response)
  GROUP BY subject;
 
 -- 5
-
+SELECT subject,
+  SUM(response * A_STRONGLY_AGREE)/100
+  FROM nss
+ WHERE question='Q22'
+   AND (subject = '(8) Computer Science'
+        OR subject = '(H) Creative Arts and Design')
+ GROUP BY subject;
 
 -- 6
 
